@@ -1,0 +1,8 @@
+uuid: 00403dae-9f76-484a-bdac-4702d7d1005e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Degree level'
+vid: degree_level
+description: ''
+weight: 0

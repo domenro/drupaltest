@@ -1,0 +1,21 @@
+uuid: dcc876cc-4a62-4f71-9430-24275e890d57
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_synonyms
+    - taxonomy.vocabulary.degree_level
+  module:
+    - jobiqo_synonyms
+id: taxonomy_term.degree_level.field_synonyms
+field_name: field_synonyms
+entity_type: taxonomy_term
+bundle: degree_level
+label: Synonyms
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: jobiqo_synonyms
