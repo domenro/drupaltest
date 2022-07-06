@@ -7,6 +7,7 @@ namespace Drupal\jobiqo_synonyms\Plugin\Field\FieldWidget;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\Validator\ConstraintViolationInterface;
 
 /**
  * Plugin for Synonyms widget.
@@ -42,6 +43,7 @@ class SynonymsWidget extends WidgetBase {
       '#title' => $this->t('Synonyms'),
       '#default_value' => implode("\n", $value),
       '#description' => $this->t('Enter one synonym per line.'),
+      '#maxlength' => 255,
     ];
     return $widget;
   }
@@ -85,6 +87,13 @@ class SynonymsWidget extends WidgetBase {
       }
     }
     $items->setValue($value);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function errorElement(array $element, ConstraintViolationInterface $violation, array $form, FormStateInterface $form_state) {
+    return isset($violation->arrayPropertyPath[0]) ? $element[$violation->arrayPropertyPath[0]] : $element;
   }
 
 }
